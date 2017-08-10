@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context="com.promiseland.ks.pages.MainActivity">
 
-    <com.promiseland.ks.view.custom.PieView
-        android:id="@+id/pieView"
-        android:layout_width="100dp"
+    <com.promiseland.ks.view.custom.LeafProgressView
+        android:id="@+id/demoView"
+        android:layout_width="500dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

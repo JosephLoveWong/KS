@@ -51,9 +51,9 @@ public class PieView extends View {
         super.onDraw(canvas);
         if(mPieDatas == null) return;
 
+        canvas.translate(mWidth / 2, mHeight / 2);
         int r = (int) (Math.min(mWidth, mHeight) / 2 * 0.8);
         RectF rectF = new RectF(-r, -r, r, r);
-        canvas.translate(mWidth / 2, mHeight / 2);
 
         float sumValue = 0;
         float startAngle = mStartAngle;
