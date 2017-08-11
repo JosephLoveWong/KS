@@ -28,13 +28,16 @@ public class MainActivity extends AppCompatActivity {
                 = (LeafProgressView) findViewById(R.id.demoView);
         view.setMax(500);
         view.setProgress(0);
+        view.setBorder(10);
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                if(view.getProgress() >= view.getMax()) return;
+
                 view.setProgress(view.getProgress() + 5);
-                mHandler.postDelayed(this, 3000);
+                mHandler.postDelayed(this, 100);
             }
-        }, 3000);
+        }, 100);
 
     }
 
