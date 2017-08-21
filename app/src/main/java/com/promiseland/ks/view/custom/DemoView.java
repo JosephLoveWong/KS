@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.RectF;
+import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -15,6 +15,10 @@ import android.view.View;
 
 public class DemoView extends View {
     private Paint mPaint = new Paint();
+
+    private int count = 6;
+    private int capacity = 5;
+    private float mRadius;
 
     private float mWidth;
     private float mHeight;
@@ -31,6 +35,8 @@ public class DemoView extends View {
         super(context, attrs, defStyleAttr);
 
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(5);
         mPaint.setColor(Color.RED);
     }
 
@@ -39,6 +45,7 @@ public class DemoView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         mWidth = w;
         mHeight = h;
+        mRadius = Math.min(mWidth, mHeight) / 2;
     }
 
     @Override
@@ -46,8 +53,10 @@ public class DemoView extends View {
         super.onDraw(canvas);
 
         canvas.translate(mWidth / 2, mHeight / 2);
-        int r = (int) (Math.min(mWidth, mHeight) / 2 * 0.8);
-        RectF rectF = new RectF(-r, -r , r, r);
-        canvas.drawArc(rectF, 180 - 30, 60, false, mPaint);
+
+        Path path = new Path();
+        path.lineTo(mRadius, 0);
+
+        canvas.drawPath(path, mPaint);
     }
 }

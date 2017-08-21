@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        demoDemo();
+//        progressDemo();
 //        pieDemo();
     }
 
     Handler mHandler = new Handler();
-    private void demoDemo() {
+    private void progressDemo() {
         final LeafProgressView view
                 = (LeafProgressView) findViewById(R.id.demoView);
         view.setMax(500);
