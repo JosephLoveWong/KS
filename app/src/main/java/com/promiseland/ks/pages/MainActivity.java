@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.promiseland.ks.R;
+import com.promiseland.ks.view.custom.SpiderView;
 import com.promiseland.ks.view.custom.LeafProgressView;
 import com.promiseland.ks.view.custom.PieView;
 
@@ -18,8 +19,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        spiderDemo();
 //        progressDemo();
 //        pieDemo();
+    }
+
+    private void spiderDemo() {
+        SpiderView view = (SpiderView) findViewById(R.id.demoView);
+        List<SpiderView.SpiderData> datas = new ArrayList<>();
+        datas.add(new SpiderView.SpiderData(4.5f));
+        datas.add(new SpiderView.SpiderData(3.8f));
+        datas.add(new SpiderView.SpiderData(4.2f));
+        datas.add(new SpiderView.SpiderData(5f));
+        datas.add(new SpiderView.SpiderData(3f));
+        datas.add(new SpiderView.SpiderData(6f));
+        datas.add(new SpiderView.SpiderData(5.7f));
+        view.setDatas(datas);
     }
 
     Handler mHandler = new Handler();
