@@ -16,7 +16,10 @@ import android.view.View;
  * Created by joseph on 2017/8/21.
  */
 
-public class DemoView extends View {
+/**
+ * TODO 后续完善
+ */
+public class SearchView extends View {
 
     private Paint mPaint = new Paint();
 
@@ -25,15 +28,15 @@ public class DemoView extends View {
 
     private Matrix matrix = new Matrix();
 
-    public DemoView(Context context) {
+    public SearchView(Context context) {
         this(context, null);
     }
 
-    public DemoView(Context context, @Nullable AttributeSet attrs) {
+    public SearchView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public DemoView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SearchView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mPaint = new Paint();
         mPaint.setStyle(Paint.Style.STROKE);

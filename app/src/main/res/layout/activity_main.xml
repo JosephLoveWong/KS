@@ -5,9 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#80ffffff"
     tools:context="com.promiseland.ks.pages.MainActivity">
 
-    <com.promiseland.ks.view.custom.SpiderView
+    <com.promiseland.ks.view.custom.DemoView
         android:id="@+id/demoView"
         android:layout_width="300dp"
         android:layout_height="300dp"
