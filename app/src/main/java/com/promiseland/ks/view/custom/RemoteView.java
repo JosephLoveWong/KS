@@ -17,7 +17,7 @@ import android.widget.Toast;
  * Created by joseph on 2017/8/21.
  */
 
-public class DemoView extends View {
+public class RemoteView extends View {
     private Paint mPaint = new Paint();
 
     private int centerX;
@@ -38,15 +38,15 @@ public class DemoView extends View {
     private Region downRegion = new Region();
     private Region centerRegion = new Region();
 
-    public DemoView(Context context) {
+    public RemoteView(Context context) {
         this(context, null);
     }
 
-    public DemoView(Context context, @Nullable AttributeSet attrs) {
+    public RemoteView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public DemoView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public RemoteView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mPaint = new Paint();
         mPaint.setStyle(Paint.Style.FILL);
