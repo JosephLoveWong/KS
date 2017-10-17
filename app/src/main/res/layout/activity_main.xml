@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#80ffffff"
-    tools:context="com.promiseland.ks.pages.MainActivity">
+    tools:context="com.promiseland.ks.pages.LauncherActivity">
 
     <com.promiseland.ks.view.custom.DemoView
         android:id="@+id/demoView"
