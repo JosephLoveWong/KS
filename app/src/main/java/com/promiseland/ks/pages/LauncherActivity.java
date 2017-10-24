@@ -1,33 +1,32 @@
 package com.promiseland.ks.pages;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.FrameLayout;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.promiseland.ks.R;
+import com.promiseland.ks.base.utils.ActivityUtil;
+import com.promiseland.ks.pages.search.BaseSearchFragment;
+import com.promiseland.ks.pages.search.ScrollingSearchFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.promiseland.ks.R.id.floating_search_view;
 
 public class LauncherActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, SwipeRefreshLayout.OnRefreshListener {
+        implements NavigationView.OnNavigationItemSelectedListener, BaseSearchFragment.SearchFragmentCallbacks {
 
-    @BindView(R.id.layout_refresh)
-    SwipeRefreshLayout mLayoutRefresh;
-
-    @BindView(floating_search_view)
-    FloatingSearchView mSearchView;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout mDrawer;
+    @BindView(R.id.fragment_container)
+    FrameLayout mFrameLayout;
+    @BindView(R.id.nav_view)
+    NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,71 +34,18 @@ public class LauncherActivity extends AppCompatActivity
         setContentView(R.layout.activity_launcher);
         ButterKnife.bind(this);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        // 屏蔽actionBar逻辑
-//        setSupportActionBar(toolbar);
+        mNavigationView.setNavigationItemSelectedListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.setDrawerListener(toggle);
-//        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        mLayoutRefresh.setOnRefreshListener(this);
-        mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
-            @Override
-            public void onSearchTextChanged(String oldQuery, final String newQuery) {
-
-                //get suggestions based on newQuery
-
-                //pass them on to the search view
-            }
-        });
-
-        mSearchView.setOnLeftMenuClickListener(
-                new FloatingSearchView.OnLeftMenuClickListener() {
-
-                    @Override
-                    public void onMenuOpened() {
-
-                    }
-
-                    @Override
-                    public void onMenuClosed() {
-
-                    }
-                } );
-
-        mSearchView.attachNavigationDrawerToMenuButton(drawer);
+        ActivityUtil.replaceFragment(getSupportFragmentManager(), new ScrollingSearchFragment(), R.id.fragment_container);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+            mDrawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -128,8 +74,7 @@ public class LauncherActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRefresh() {
-        // TODO
-        mLayoutRefresh.setRefreshing(false);
+    public void onAttachSearchViewToDrawer(FloatingSearchView searchView) {
+
     }
 }
