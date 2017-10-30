@@ -39,7 +39,7 @@
         </activity>
         <activity
             android:name=".pages.LauncherActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTransparent"/>
         <activity
             android:name=".pages.live.LiveActivity"
             android:theme="@style/AppTheme.NoActionBar">

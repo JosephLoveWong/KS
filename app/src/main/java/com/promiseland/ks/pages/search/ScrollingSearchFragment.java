@@ -15,10 +15,12 @@ import com.arlib.floatingsearchview.FloatingSearchView;
 import com.arlib.floatingsearchview.suggestions.SearchSuggestionsAdapter;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.promiseland.ks.R;
+import com.promiseland.ks.base.utils.ConfigurationUtils;
+import com.promiseland.ks.base.utils.statusbar.Eyes;
 
 
 public class ScrollingSearchFragment extends BaseSearchFragment implements AppBarLayout.OnOffsetChangedListener {
-    private final String TAG = "BlankFragment";
+    private final String TAG = "ScrollingSearchFragment";
 
     public static final long FIND_SUGGESTION_SIMULATED_DELAY = 250;
 
@@ -44,11 +46,13 @@ public class ScrollingSearchFragment extends BaseSearchFragment implements AppBa
         super.onViewCreated(view, savedInstanceState);
         mSearchView = (FloatingSearchView) view.findViewById(R.id.floating_search_view);
         mAppBar = (AppBarLayout) view.findViewById(R.id.appbar);
-
         mAppBar.addOnOffsetChangedListener(this);
 
+        Eyes.translucentStatusBar(getActivity(), false);
+        initToolbar(mAppBar, false);
         setupDrawer();
         setupSearchBar();
+
     }
 
     private void setupSearchBar() {
@@ -249,5 +253,21 @@ public class ScrollingSearchFragment extends BaseSearchFragment implements AppBa
 
     private void setupDrawer() {
         attachSearchViewActivityDrawer(mSearchView);
+    }
+
+
+    protected void initToolbar(ViewGroup barView, boolean updateContainerMargin) {
+        ConfigurationUtils.adjustToolbarHeight(getActivity(), barView);
+//        translateView(barView, ConfigurationUtils.getStatusBarHeight(getActivity()));
+    }
+
+    protected void translateView(View view, int statusBarSize) {
+        if (view != null) {
+            ViewGroup.LayoutParams containerParams = view.getLayoutParams();
+            if (containerParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams relContainerParams = (ViewGroup.MarginLayoutParams) containerParams;
+                relContainerParams.setMargins(relContainerParams.leftMargin, relContainerParams.topMargin - statusBarSize, relContainerParams.rightMargin, relContainerParams.bottomMargin);
+            }
+        }
     }
 }

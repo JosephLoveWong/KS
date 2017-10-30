@@ -1,5 +1,8 @@
 package com.promiseland.ks.pages;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +16,8 @@ import com.promiseland.ks.R;
 import com.promiseland.ks.base.utils.ActivityUtil;
 import com.promiseland.ks.pages.search.BaseSearchFragment;
 import com.promiseland.ks.pages.search.ScrollingSearchFragment;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +33,7 @@ public class LauncherActivity extends AppCompatActivity
     @BindView(R.id.nav_view)
     NavigationView mNavigationView;
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +47,10 @@ public class LauncherActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
-            mDrawer.closeDrawer(GravityCompat.START);
-        } else {
+        @SuppressLint("RestrictedApi") List fragments = getSupportFragmentManager().getFragments();
+        BaseSearchFragment currentFragment = (BaseSearchFragment) fragments.get(fragments.size() - 1);
+
+        if (!currentFragment.onActivityBackPress()) {
             super.onBackPressed();
         }
     }
@@ -75,6 +82,8 @@ public class LauncherActivity extends AppCompatActivity
 
     @Override
     public void onAttachSearchViewToDrawer(FloatingSearchView searchView) {
-
+        searchView.attachNavigationDrawerToMenuButton(mDrawer);
     }
+
+
 }
