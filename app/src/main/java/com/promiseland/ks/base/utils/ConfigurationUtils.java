@@ -1,6 +1,8 @@
 package com.promiseland.ks.base.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 
 public class ConfigurationUtils {
@@ -16,11 +18,23 @@ public class ConfigurationUtils {
         return 0;
     }
 
+    public static int getScreenHeight(Context context) {
+        Resources resources = context.getResources();
+        DisplayMetrics dm = resources.getDisplayMetrics();
+        float density = dm.density;
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+
+        return height;
+    }
+
     public static void adjustToolbarHeight(Context context, ViewGroup toolbar) {
         if (toolbar != null) {
             int statusBarHeight = getStatusBarHeight(context);
             toolbar.setPadding(toolbar.getPaddingLeft(), toolbar.getPaddingTop() + statusBarHeight, toolbar.getPaddingRight(), toolbar.getPaddingBottom());
+            LogUtil.e(LogUtil.TAG, "ori 1 " + toolbar.getLayoutParams().height);
             toolbar.getLayoutParams().height += statusBarHeight;
+            LogUtil.e(LogUtil.TAG, "ori height 1 " + toolbar.getLayoutParams().height);
         }
     }
 }

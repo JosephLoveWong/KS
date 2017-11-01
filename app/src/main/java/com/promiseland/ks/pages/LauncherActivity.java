@@ -14,8 +14,8 @@ import android.widget.FrameLayout;
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.promiseland.ks.R;
 import com.promiseland.ks.base.utils.ActivityUtil;
-import com.promiseland.ks.pages.search.BaseSearchFragment;
-import com.promiseland.ks.pages.search.ScrollingSearchFragment;
+import com.promiseland.ks.pages.search.BaseSearchBarRecyclerViewFragment;
+import com.promiseland.ks.pages.search.ScrollingSearchBarRecyclerViewFragment;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 
 
 public class LauncherActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, BaseSearchFragment.SearchFragmentCallbacks {
+        implements NavigationView.OnNavigationItemSelectedListener, BaseSearchBarRecyclerViewFragment.SearchFragmentCallbacks {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawer;
@@ -42,13 +42,13 @@ public class LauncherActivity extends AppCompatActivity
 
         mNavigationView.setNavigationItemSelectedListener(this);
 
-        ActivityUtil.replaceFragment(getSupportFragmentManager(), new ScrollingSearchFragment(), R.id.fragment_container);
+        ActivityUtil.replaceFragment(getSupportFragmentManager(), new ScrollingSearchBarRecyclerViewFragment(), R.id.fragment_container);
     }
 
     @Override
     public void onBackPressed() {
         @SuppressLint("RestrictedApi") List fragments = getSupportFragmentManager().getFragments();
-        BaseSearchFragment currentFragment = (BaseSearchFragment) fragments.get(fragments.size() - 1);
+        BaseSearchBarRecyclerViewFragment currentFragment = (BaseSearchBarRecyclerViewFragment) fragments.get(fragments.size() - 1);
 
         if (!currentFragment.onActivityBackPress()) {
             super.onBackPressed();

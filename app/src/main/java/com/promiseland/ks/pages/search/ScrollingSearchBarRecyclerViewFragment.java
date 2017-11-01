@@ -16,39 +16,33 @@ import com.arlib.floatingsearchview.suggestions.SearchSuggestionsAdapter;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.promiseland.ks.R;
 import com.promiseland.ks.base.utils.ConfigurationUtils;
-import com.promiseland.ks.base.utils.statusbar.Eyes;
+import com.promiseland.ks.base.utils.LogUtil;
+
+import butterknife.ButterKnife;
 
 
-public class ScrollingSearchFragment extends BaseSearchFragment implements AppBarLayout.OnOffsetChangedListener {
+public class ScrollingSearchBarRecyclerViewFragment extends BaseSearchBarRecyclerViewFragment implements AppBarLayout.OnOffsetChangedListener {
     private final String TAG = "ScrollingSearchFragment";
-
-    public static final long FIND_SUGGESTION_SIMULATED_DELAY = 250;
-
-    private FloatingSearchView mSearchView;
-    private AppBarLayout mAppBar;
-
-    private boolean mIsDarkSearchTheme = false;
 
     private String mLastQuery = "";
 
-    public ScrollingSearchFragment() {
+    public ScrollingSearchBarRecyclerViewFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_scrolling_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_scrolling_search, container, false);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mSearchView = (FloatingSearchView) view.findViewById(R.id.floating_search_view);
-        mAppBar = (AppBarLayout) view.findViewById(R.id.appbar);
         mAppBar.addOnOffsetChangedListener(this);
 
-        Eyes.translucentStatusBar(getActivity(), false);
         initToolbar(mAppBar, false);
         setupDrawer();
         setupSearchBar();
@@ -236,6 +230,7 @@ public class ScrollingSearchFragment extends BaseSearchFragment implements AppBa
 
     @Override
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+        LogUtil.e(LogUtil.TAG, "onOffsetChanged " + verticalOffset, new Exception(""));
         mSearchView.setTranslationY(verticalOffset);
     }
 

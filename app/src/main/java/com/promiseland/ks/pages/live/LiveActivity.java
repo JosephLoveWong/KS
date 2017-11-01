@@ -22,8 +22,10 @@ public class LiveActivity extends AppCompatActivity {
 
         // 异步加载，因为牵扯到线程间通信，所以更加推荐异步加载方式，以免因线程响应太慢造成ANR
         try {
-//            LiveController.getInstance().load("14496521645631186", "UHD", 0, new OnLoadedListener() {
-            LiveController.getInstance().load("59f69e8638267b46330aa1b2", "UHD", 0, new OnLoadedListener() {
+            Log.e("mmm", "onCreate start load " + getPackageName());
+            // vbyte demo
+            LiveController.getInstance().load("14496521645631186", "UHD", 0, new OnLoadedListener() {
+//            LiveController.getInstance().load("59f69e8638267b46330aa1b2", "UHD", 0, new OnLoadedListener() {
                 @Override
                 public void onLoaded(Uri uri) {
                     Log.e("mmm", "onLoaded " + uri.toString());
