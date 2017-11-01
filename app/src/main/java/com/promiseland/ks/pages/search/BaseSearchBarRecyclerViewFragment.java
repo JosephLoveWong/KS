@@ -12,7 +12,6 @@ import com.arlib.floatingsearchview.FloatingSearchView;
 import com.promiseland.ks.R;
 import com.promiseland.ks.base.utils.APILevelHelper;
 import com.promiseland.ks.base.utils.ConfigurationUtils;
-import com.promiseland.ks.base.utils.LogUtil;
 
 import butterknife.BindView;
 
@@ -57,6 +56,8 @@ public abstract class BaseSearchBarRecyclerViewFragment extends BaseRecyclerView
 
         // TODO 移动内容
 //        moveRecyclerViewBelowAppBar();
+
+        updateAppBarChildHeight();
     }
 
     protected void attachSearchViewActivityDrawer(FloatingSearchView searchView){
@@ -74,9 +75,7 @@ public abstract class BaseSearchBarRecyclerViewFragment extends BaseRecyclerView
             this.mAppBar.setTranslationY((float) (-statusBarHeight));
             ViewGroup.LayoutParams layoutParams = this.mAppBar.getLayoutParams();
 
-            LogUtil.e(LogUtil.TAG, "ori height " + layoutParams.height);
             layoutParams.height += statusBarHeight;
-            LogUtil.e(LogUtil.TAG, "new  height" + layoutParams.height);
         }
     }
 
@@ -91,6 +90,17 @@ public abstract class BaseSearchBarRecyclerViewFragment extends BaseRecyclerView
                 BaseSearchBarRecyclerViewFragment.this.mNestedScrollView.requestLayout();
             }
         });
+    }
+
+    /**
+     * 更新appBar滚动的距离
+     */
+    private void updateAppBarChildHeight() {
+        if(this.mAppBar.getChildCount() > 0) {
+            final View child = this.mAppBar.getChildAt(0);
+            final AppBarLayout.LayoutParams lp = (AppBarLayout.LayoutParams) child.getLayoutParams();
+            lp.height += ConfigurationUtils.getStatusBarHeight(getContext()) * 2;
+        }
     }
 
 }

@@ -24,7 +24,9 @@
 
     <!-- 状态栏、导航栏透明 -->
     <style name="AppTransparent" parent="AppTheme.NoActionBar">
+        <!--顶部状态栏-->
         <item name="android:windowTranslucentStatus">true</item>
+        <!--底部导航栏-->
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 

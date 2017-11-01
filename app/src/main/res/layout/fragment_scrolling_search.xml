@@ -21,7 +21,7 @@
             <View
                 android:background="@color/transparent"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="?attr/actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways"/>
 
         </android.support.design.widget.AppBarLayout>

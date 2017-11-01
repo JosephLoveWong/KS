@@ -32,9 +32,7 @@ public class ConfigurationUtils {
         if (toolbar != null) {
             int statusBarHeight = getStatusBarHeight(context);
             toolbar.setPadding(toolbar.getPaddingLeft(), toolbar.getPaddingTop() + statusBarHeight, toolbar.getPaddingRight(), toolbar.getPaddingBottom());
-            LogUtil.e(LogUtil.TAG, "ori 1 " + toolbar.getLayoutParams().height);
             toolbar.getLayoutParams().height += statusBarHeight;
-            LogUtil.e(LogUtil.TAG, "ori height 1 " + toolbar.getLayoutParams().height);
         }
     }
 }

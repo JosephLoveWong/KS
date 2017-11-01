@@ -16,7 +16,6 @@ import com.arlib.floatingsearchview.suggestions.SearchSuggestionsAdapter;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.promiseland.ks.R;
 import com.promiseland.ks.base.utils.ConfigurationUtils;
-import com.promiseland.ks.base.utils.LogUtil;
 
 import butterknife.ButterKnife;
 
@@ -43,7 +42,7 @@ public class ScrollingSearchBarRecyclerViewFragment extends BaseSearchBarRecycle
         super.onViewCreated(view, savedInstanceState);
         mAppBar.addOnOffsetChangedListener(this);
 
-        initToolbar(mAppBar, false);
+//        initToolbar(mAppBar, false);
         setupDrawer();
         setupSearchBar();
 
@@ -230,7 +229,6 @@ public class ScrollingSearchBarRecyclerViewFragment extends BaseSearchBarRecycle
 
     @Override
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-        LogUtil.e(LogUtil.TAG, "onOffsetChanged " + verticalOffset, new Exception(""));
         mSearchView.setTranslationY(verticalOffset);
     }
 
@@ -253,7 +251,7 @@ public class ScrollingSearchBarRecyclerViewFragment extends BaseSearchBarRecycle
 
     protected void initToolbar(ViewGroup barView, boolean updateContainerMargin) {
         ConfigurationUtils.adjustToolbarHeight(getActivity(), barView);
-//        translateView(barView, ConfigurationUtils.getStatusBarHeight(getActivity()));
+        translateView(barView, ConfigurationUtils.getStatusBarHeight(getActivity()));
     }
 
     protected void translateView(View view, int statusBarSize) {
