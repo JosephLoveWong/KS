@@ -3,7 +3,10 @@ package com.promiseland.ks.base.utils;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.ViewGroup;
+
+import com.promiseland.ks.R;
 
 public class ConfigurationUtils {
 
@@ -34,5 +37,22 @@ public class ConfigurationUtils {
             toolbar.setPadding(toolbar.getPaddingLeft(), toolbar.getPaddingTop() + statusBarHeight, toolbar.getPaddingRight(), toolbar.getPaddingBottom());
             toolbar.getLayoutParams().height += statusBarHeight;
         }
+    }
+
+    public static int getActionBarHeight(Context context) {
+        TypedValue tv = new TypedValue();
+        if (context.getTheme().resolveAttribute(R.attr.actionBarSize, tv, true)) {
+            return TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());
+        }
+        return 0;
+    }
+
+
+    public static int getAppBarOffset(Context context) {
+        int offset = getActionBarHeight(context);
+        if (APILevelHelper.isAPILevelMinimal(21)) {
+            return offset + getStatusBarHeight(context);
+        }
+        return offset;
     }
 }
