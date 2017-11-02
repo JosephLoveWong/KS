@@ -43,4 +43,16 @@
         <item name="android:background">@color/transparent</item>
     </style>
 
+    <style name="Font.H2.Touchgrey" parent="KitchenThemeOverlay">
+        <item name="android:textColor">@color/touch_grey</item>
+    </style>
+
+    <style name="ButtonStyleFlat">
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="android:textColor">@drawable/text_button_text_color</item>
+        <item name="android:background">@drawable/text_button_ripple_selector</item>
+        <item name="android:clickable">true</item>
+        <item name="android:fontFamily">fonts/BrandonTextMedium.otf</item>
+    </style>
+
 </resources>

@@ -40,13 +40,13 @@ public class RecyclerViewForVerticalScrollChildren extends RecyclerView {
     public boolean shouldHandleTouchEvent(MotionEvent ev) {
         if (this.mShouldPassVerticalScrollsToChildren) {
             switch (MotionEventCompat.getActionMasked(ev)) {
-                case 0:
+                case MotionEvent.ACTION_DOWN:
                     this.yDistance = 0.0f;
                     this.xDistance = 0.0f;
                     this.lastX = ev.getX();
                     this.lastY = ev.getY();
                     break;
-                case 2:
+                case MotionEvent.ACTION_MOVE:
                     float curX = ev.getX();
                     float curY = ev.getY();
                     this.xDistance += Math.abs(curX - this.lastX);

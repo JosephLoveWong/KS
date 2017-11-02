@@ -41,11 +41,11 @@ public class ScrollingSearchBarRecyclerViewFragment extends BaseSearchBarRecycle
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mAppBar.addOnOffsetChangedListener(this);
+        mEmptyStateRecyclerView.enableVerticalScrollEventPassThrough();
 
 //        initToolbar(mAppBar, false);
         setupDrawer();
         setupSearchBar();
-
     }
 
     private void setupSearchBar() {

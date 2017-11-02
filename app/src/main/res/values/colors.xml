@@ -12,4 +12,9 @@
     <color name="color_ks_light">#24000000</color>
 
     <color name="background_grey">#f2f2f2</color>
+    <color name="touch_grey">#8e8e8e</color>
+
+    <color name="honey_melon">#ffcd02</color>
+    <color name="honey_melon_inactive">#f8db73</color>
+    <color name="honey_melon_selected">#ffdd10</color>
 </resources>

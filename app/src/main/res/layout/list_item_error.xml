@@ -14,18 +14,18 @@
         android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
         android:src="@drawable/ic_banana"/>
 
-        <!--style="@style/Font_H2_Touchgrey"-->
     <TextView
         android:id="@+id/error_text"
+        style="@style/Font.H2.Touchgrey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
         android:text="@string/network_alert_view_title"/>
 
-        <!--style="@style/ButtonStyleFlat"-->
     <TextView
         android:id="@+id/btn_try_again"
+        style="@style/ButtonStyleFlat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/text_button_ripple_selector"

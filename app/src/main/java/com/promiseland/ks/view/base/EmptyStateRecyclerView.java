@@ -72,7 +72,7 @@ public class EmptyStateRecyclerView extends FrameLayout {
         if (this.mErrorView == null) {
             this.mErrorStub.setLayoutResource(loadingErrorLayoutResource);
             this.mErrorView = this.mErrorStub.inflate();
-            TextView errorTextView = (TextView) ButterKnife.findById(this.mErrorView, errorTextViewId);
+            TextView errorTextView = ButterKnife.findById(this.mErrorView, errorTextViewId);
             if (errorTextView != null) {
                 errorTextView.setText(errorStringId);
             }

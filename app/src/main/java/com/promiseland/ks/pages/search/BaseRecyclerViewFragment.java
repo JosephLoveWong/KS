@@ -1,9 +1,8 @@
 package com.promiseland.ks.pages.search;
 
-import android.support.v4.widget.NestedScrollView;
-
 import com.promiseland.ks.R;
 import com.promiseland.ks.pages.BaseFragment;
+import com.promiseland.ks.view.base.EmptyStateRecyclerView;
 
 import butterknife.BindView;
 
@@ -12,6 +11,6 @@ import butterknife.BindView;
  */
 
 public abstract class BaseRecyclerViewFragment extends BaseFragment {
-    @BindView(R.id.scroll_view)
-    protected NestedScrollView mNestedScrollView;
+    @BindView(R.id.empty_state_recycler_view)
+    protected EmptyStateRecyclerView mEmptyStateRecyclerView;
 }

@@ -80,14 +80,14 @@ public abstract class BaseSearchBarRecyclerViewFragment extends BaseRecyclerView
     }
 
     private void moveRecyclerViewBelowAppBar() {
-        this.mNestedScrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        this.mEmptyStateRecyclerView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             public void onGlobalLayout() {
-                BaseSearchBarRecyclerViewFragment.this.mNestedScrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                BaseSearchBarRecyclerViewFragment.this.mEmptyStateRecyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int appBarHeight = BaseSearchBarRecyclerViewFragment.this.mAppBar.getLayoutParams().height;
-                BaseSearchBarRecyclerViewFragment.this.mNestedScrollView.setTranslationY((float) (-appBarHeight));
+                BaseSearchBarRecyclerViewFragment.this.mEmptyStateRecyclerView.setTranslationY((float) (-appBarHeight));
                 Context applicationContext = BaseSearchBarRecyclerViewFragment.this.getContext();
-                BaseSearchBarRecyclerViewFragment.this.mNestedScrollView.getLayoutParams().height = (ConfigurationUtils.getScreenHeight(BaseSearchBarRecyclerViewFragment.this.getContext()) + appBarHeight) - ConfigurationUtils.getStatusBarHeight(applicationContext);
-                BaseSearchBarRecyclerViewFragment.this.mNestedScrollView.requestLayout();
+                BaseSearchBarRecyclerViewFragment.this.mEmptyStateRecyclerView.getLayoutParams().height = (ConfigurationUtils.getScreenHeight(BaseSearchBarRecyclerViewFragment.this.getContext()) + appBarHeight) - ConfigurationUtils.getStatusBarHeight(applicationContext);
+                BaseSearchBarRecyclerViewFragment.this.mEmptyStateRecyclerView.requestLayout();
             }
         });
     }

@@ -7,4 +7,5 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="search_view_inset">8dp</dimen>
+    <dimen name="text_size_h3">16sp</dimen>
 </resources>

@@ -7,39 +7,45 @@
                 android:fitsSystemWindows="false">
 
     <android.support.design.widget.CoordinatorLayout
-        android:background="@color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/transparent"
         android:fitsSystemWindows="false">
 
         <android.support.design.widget.AppBarLayout
-            style="@style/KS.AppBarLayout"
             android:id="@+id/appbar_layout"
+            style="@style/KS.AppBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <View
-                android:background="@color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
                 app:layout_scrollFlags="scroll|enterAlways"/>
 
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/scroll_view"
+        <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:id="@+id/scroll_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:clipToPadding="false"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+        <!--<TextView-->
+        <!--android:clipToPadding="false"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/random_text"-->
+        <!--android:textSize="18sp"/>-->
+        <!--</android.support.v4.widget.NestedScrollView>-->
+
+        <com.promiseland.ks.view.base.EmptyStateRecyclerView
+            android:id="@+id/empty_state_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <TextView
-                android:clipToPadding="false"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/random_text"
-                android:textSize="18sp"/>
-        </android.support.v4.widget.NestedScrollView>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
     </android.support.design.widget.CoordinatorLayout>
 
     <com.arlib.floatingsearchview.FloatingSearchView
