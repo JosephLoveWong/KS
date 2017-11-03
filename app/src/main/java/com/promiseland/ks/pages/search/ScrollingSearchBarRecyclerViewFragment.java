@@ -248,7 +248,6 @@ public class ScrollingSearchBarRecyclerViewFragment extends BaseSearchBarRecycle
         attachSearchViewActivityDrawer(mSearchView);
     }
 
-
     protected void initToolbar(ViewGroup barView, boolean updateContainerMargin) {
         ConfigurationUtils.adjustToolbarHeight(getActivity(), barView);
         translateView(barView, ConfigurationUtils.getStatusBarHeight(getActivity()));
