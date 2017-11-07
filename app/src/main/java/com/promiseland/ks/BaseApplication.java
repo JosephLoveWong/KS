@@ -3,9 +3,11 @@ package com.promiseland.ks;
 import android.app.Application;
 import android.content.Context;
 
+import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import cn.vbyte.p2p.VbyteP2PModule;
+import timber.log.Timber;
 
 /**
  * Created by Administrator on 2017/6/5.
@@ -34,7 +36,16 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-        CrashReport.initCrashReport(getApplicationContext(), "a54f458154", true);// 初始化P2P模块
+        CrashReport.initCrashReport(getApplicationContext(), "a54f458154", true);
+        LeakCanary.install(this);
+//        boolean debug = this.mPrefs.getDebugModeEnabled();
+        if (true) { // TODO
+            Timber.plant(new Timber.DebugTree() {
+                protected String createStackElementTag(StackTraceElement element) {
+                    return super.createStackElementTag(element) + ":" + element.getLineNumber();
+                }
+            });
+        }
 
         // 初始化P2P模块
         try {
