@@ -1,9 +1,13 @@
 package com.promiseland.ks.base.utils;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.ViewGroup;
 
 import com.promiseland.ks.R;
@@ -29,6 +33,17 @@ public class ConfigurationUtils {
         int height = dm.heightPixels;
 
         return height;
+    }
+
+    @TargetApi(17)
+    public static Point getRealScreenSize(Activity activity) {
+        if (activity == null) {
+            return new Point(768, 1024);
+        }
+        Display display = activity.getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getRealSize(size);
+        return new Point(size.x, size.y);
     }
 
     public static void adjustToolbarHeight(Context context, ViewGroup toolbar) {

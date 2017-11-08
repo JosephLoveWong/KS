@@ -16,6 +16,10 @@
     </style>
 
     <style name="KitchenThemeOverlay">
+        <item name="colorPrimary">@color/honey_melon</item>
+        <item name="colorPrimaryDark">@color/primary_material_light_dark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
@@ -53,6 +57,30 @@
         <item name="android:background">@drawable/text_button_ripple_selector</item>
         <item name="android:clickable">true</item>
         <item name="android:fontFamily">fonts/BrandonTextMedium.otf</item>
+    </style>
+
+    <style name="Font">
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="android:textColor">@color/text_grey</item>
+    </style>
+
+    <style name="Font.Link">
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="android:textColor">@color/honey_melon</item>
+        <item name="android:fontFamily">fonts/BrandonTextMedium.otf</item>
+    </style>
+
+    <style name="Font.IntroScreen">
+        <item name="textSize">@dimen/text_size_gigantic</item>
+        <item name="android:textColor">@color/honey_melon</item>
+        <item name="android:fontFamily">fonts/BrandonTextMedium.otf</item>
+    </style>
+
+    <style name="ButtonStyleBig">
+        <item name="android:textSize">@dimen/text_size_h2</item>
+        <item name="android:textColor">@color/primary_text_default_material_dark</item>
+        <item name="android:background">@color/honey_melon</item>
+        <item name="android:padding">48dp</item>
     </style>
 
 </resources>

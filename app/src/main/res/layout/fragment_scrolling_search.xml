@@ -26,21 +26,6 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <!--<android.support.v4.widget.NestedScrollView-->
-        <!--android:id="@+id/scroll_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:clipToPadding="false"-->
-        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
-
-        <!--<TextView-->
-        <!--android:clipToPadding="false"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/random_text"-->
-        <!--android:textSize="18sp"/>-->
-        <!--</android.support.v4.widget.NestedScrollView>-->
-
         <com.promiseland.ks.view.base.EmptyStateRecyclerView
             android:id="@+id/empty_state_recycler_view"
             android:layout_width="match_parent"

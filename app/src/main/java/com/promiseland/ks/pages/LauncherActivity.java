@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.promiseland.ks.R;
 import com.promiseland.ks.base.utils.ActivityUtil;
+import com.promiseland.ks.pages.about.AboutUsFragment;
 import com.promiseland.ks.pages.search.BaseSearchBarRecyclerViewFragment;
 import com.promiseland.ks.pages.search.ScrollingSearchBarRecyclerViewFragment;
 
@@ -71,7 +72,9 @@ public class LauncherActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_about) {
+            ActivityUtil.replaceFragment(getSupportFragmentManager(), new AboutUsFragment(), R.id.fragment_container);
+        } else if (id == R.id.nav_settings) {
 
         }
 

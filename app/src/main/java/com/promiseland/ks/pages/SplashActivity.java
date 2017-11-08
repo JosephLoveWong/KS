@@ -7,11 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.promiseland.ks.BaseApplication;
+import com.promiseland.ks.BaseApp;
 import com.promiseland.ks.R;
 import com.promiseland.ks.base.Constants;
-import com.promiseland.ks.base.utils.ToastUtil;
-import com.promiseland.ks.pages.live.LiveActivity;
 
 /**
  * Created by Administrator on 2017/10/17.
@@ -28,8 +26,8 @@ public class SplashActivity extends AppCompatActivity {
         public void onFinish() {
             // TODO
             Intent intent = new Intent();
-            intent.setClass(BaseApplication.getContext(), LauncherActivity.class);
-//            intent.setClass(BaseApplication.getContext(), LiveActivity.class);
+            intent.setClass(BaseApp.getContext(), LauncherActivity.class);
+//            intent.setClass(BaseApp.getContext(), LiveActivity.class);
             startActivity(intent);
 
             finish();
@@ -59,15 +57,15 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void vbyte(View view) {
-        ToastUtil.showToast("vbyte");
-
-        Intent intent = new Intent(this, LiveActivity.class);
-        startActivity(intent);
+//        ToastUtil.showToast("vbyte");
+//
+//        Intent intent = new Intent(this, LiveActivity.class);
+//        startActivity(intent);
     }
 
     public void startKS(View view) {
         Intent intent = new Intent();
-        intent.setClass(BaseApplication.getContext(), LauncherActivity.class);
+        intent.setClass(BaseApp.getContext(), LauncherActivity.class);
         startActivity(intent);
     }
 }
