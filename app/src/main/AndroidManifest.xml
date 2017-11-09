@@ -40,6 +40,7 @@
         <activity
             android:name=".pages.LauncherActivity"
             android:theme="@style/AppTransparent"/>
+        <activity android:name=".pages.introscreen.IntroScreenActivity"/>
     </application>
 
 </manifest>

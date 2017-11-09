@@ -71,16 +71,15 @@
     </style>
 
     <style name="Font.IntroScreen">
-        <item name="textSize">@dimen/text_size_gigantic</item>
-        <item name="android:textColor">@color/honey_melon</item>
+        <item name="android:textSize">@dimen/text_size_gigantic</item>
+        <item name="android:textColor">@color/primary_text_default_material_dark</item>
         <item name="android:fontFamily">fonts/BrandonTextMedium.otf</item>
     </style>
 
     <style name="ButtonStyleBig">
         <item name="android:textSize">@dimen/text_size_h2</item>
         <item name="android:textColor">@color/primary_text_default_material_dark</item>
-        <item name="android:background">@color/honey_melon</item>
-        <item name="android:padding">48dp</item>
+        <item name="android:padding">24dp</item>
     </style>
 
 </resources>

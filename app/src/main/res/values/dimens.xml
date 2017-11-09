@@ -28,18 +28,11 @@
     <dimen name="abc_control_corner_material">2dp</dimen>
     <dimen name="abc_control_inset_material">4dp</dimen>
     <dimen name="abc_control_padding_material">4dp</dimen>
-    <dimen name="abc_dialog_fixed_height_minor">100%</dimen>
-    <dimen name="abc_dialog_fixed_width_major">50%</dimen>
-    <dimen name="abc_dialog_fixed_width_minor">70%</dimen>
     <dimen name="abc_dialog_list_padding_bottom_no_buttons">8dp</dimen>
     <dimen name="abc_dialog_list_padding_top_no_title">8dp</dimen>
-    <dimen name="abc_dialog_min_width_major">65%</dimen>
-    <dimen name="abc_dialog_min_width_minor">72%</dimen>
     <dimen name="abc_dialog_padding_material">24dp</dimen>
     <dimen name="abc_dialog_padding_top_material">18dp</dimen>
     <dimen name="abc_dialog_title_divider_material">8dp</dimen>
-    <dimen name="abc_disabled_alpha_material_dark">0.3</dimen>
-    <dimen name="abc_disabled_alpha_material_light">0.26</dimen>
     <dimen name="abc_dropdownitem_icon_width">32dp</dimen>
     <dimen name="abc_dropdownitem_text_padding_left">8dp</dimen>
     <dimen name="abc_dropdownitem_text_padding_right">8dp</dimen>
@@ -108,7 +101,6 @@
     <dimen name="cast_expanded_controller_control_toolbar_min_height">56dp</dimen>
     <dimen name="cast_expanded_controller_margin_between_seek_bar_and_control_buttons">12dp</dimen>
     <dimen name="cast_expanded_controller_margin_between_status_text_and_seek_bar">24dp</dimen>
-    <dimen name="cast_expanded_controller_seekbar_disabled_alpha">0.4</dimen>
     <dimen name="cast_intro_overlay_button_margin_bottom">50dp</dimen>
     <dimen name="cast_intro_overlay_focus_radius">35dp</dimen>
     <dimen name="cast_intro_overlay_title_margin_top">100dp</dimen>
@@ -182,7 +174,6 @@
     <dimen name="design_bottom_navigation_text_size">12sp</dimen>
     <dimen name="design_bottom_sheet_modal_elevation">16dp</dimen>
     <dimen name="design_bottom_sheet_peek_height_min">64dp</dimen>
-    <dimen name="design_fab_border_width">0.5dp</dimen>
     <dimen name="design_fab_elevation">6dp</dimen>
     <dimen name="design_fab_image_size">24dp</dimen>
     <dimen name="design_fab_size_mini">40dp</dimen>
@@ -225,8 +216,6 @@
     <dimen name="dialog_timer_height_inner">118dp</dimen>
     <dimen name="dialog_timer_width">256dp</dimen>
     <dimen name="dialog_title_height">48dp</dimen>
-    <dimen name="disabled_alpha_material_dark">0.3</dimen>
-    <dimen name="disabled_alpha_material_light">0.26</dimen>
     <dimen name="drawer_item_main_height">48dp</dimen>
     <dimen name="drawer_separator_height">1dp</dimen>
     <dimen name="edit_profile_margin_bottom">8dp</dimen>
@@ -264,13 +253,6 @@
     <dimen name="filter_item_height">48dp</dimen>
     <dimen name="grid_item_title_margin_top">8dp</dimen>
     <dimen name="header_divider_height">1dp</dimen>
-    <dimen name="highlight_alpha_material_colored">0.26</dimen>
-    <dimen name="highlight_alpha_material_dark">0.2</dimen>
-    <dimen name="highlight_alpha_material_light">0.12</dimen>
-    <dimen name="hint_alpha_material_dark">0.5</dimen>
-    <dimen name="hint_alpha_material_light">0.38</dimen>
-    <dimen name="hint_pressed_alpha_material_dark">0.7</dimen>
-    <dimen name="hint_pressed_alpha_material_light">0.54</dimen>
     <dimen name="holder_base_padding">4dp</dimen>
     <dimen name="holder_top_space_double">16dp</dimen>
     <dimen name="holder_top_space_quadruple">32dp</dimen>
@@ -293,7 +275,6 @@
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
     <dimen name="ks_loading_view_size">184dp</dimen>
     <dimen name="list_item_choose_cookbook_padding_lr">8dp</dimen>
-    <dimen name="list_item_divider_height">0.5dp</dimen>
     <dimen name="list_item_featured_search_image_height">96dp</dimen>
     <dimen name="list_item_featured_search_image_width">72dp</dimen>
     <dimen name="login_margin_top">48dp</dimen>
@@ -397,7 +378,6 @@
     <dimen name="text_size_h5">12sp</dimen>
     <dimen name="text_size_title">28sp</dimen>
     <dimen name="tile_content_padding">8dp</dimen>
-    <dimen name="tile_spacing_line_height">0.5dp</dimen>
     <dimen name="timer_view_margin_top_search_bar_page">128dp</dimen>
     <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="ttlm_default_corner_radius">4dp</dimen>

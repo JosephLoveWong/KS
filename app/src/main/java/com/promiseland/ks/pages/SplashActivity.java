@@ -10,6 +10,7 @@ import android.view.View;
 import com.promiseland.ks.BaseApp;
 import com.promiseland.ks.R;
 import com.promiseland.ks.base.Constants;
+import com.promiseland.ks.pages.introscreen.IntroScreenActivity;
 
 /**
  * Created by Administrator on 2017/10/17.
@@ -57,10 +58,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void vbyte(View view) {
-//        ToastUtil.showToast("vbyte");
-//
-//        Intent intent = new Intent(this, LiveActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, IntroScreenActivity.class);
+        startActivity(intent);
     }
 
     public void startKS(View view) {

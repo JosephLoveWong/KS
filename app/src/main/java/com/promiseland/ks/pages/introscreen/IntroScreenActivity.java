@@ -1,6 +1,5 @@
 package com.promiseland.ks.pages.introscreen;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Matrix;
@@ -53,10 +52,9 @@ public class IntroScreenActivity extends BaseActivity {
     }
 
     protected void onCreate(Bundle savedInstanceState) {
-        int i = 0;
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.activity_intro_screen);
-        ButterKnife.bind((Activity) this);
+        setContentView(R.layout.activity_intro_screen);
+        ButterKnife.bind(this);
         if (savedInstanceState != null) {
             this.mIsFirstScreen = savedInstanceState.getBoolean("IS_FIRST_SCREEN", true);
         }
@@ -100,21 +98,21 @@ public class IntroScreenActivity extends BaseActivity {
     void startVideo() {
         try {
             this.mMediaPlayer.setDataSource(this, this.mBackgroundVideoUri);
-            this.mMediaPlayer.setOnPreparedListener(new IntroScreenActivity$$Lambda$0(this));
+            this.mMediaPlayer.setOnPreparedListener(
+                    (payer) -> {
+                        if (payer != null) {
+                            this.mInitSuccessfull = true;
+                            payer.start();
+                            if (this.mSavedPlaybackPosition != 0) {
+                                payer.seekTo(this.mSavedPlaybackPosition);
+                            }
+                            payer.setOnPreparedListener(null);
+                        }
+                    }
+            );
             this.mMediaPlayer.prepareAsync();
         } catch (Exception e) {
             Timber.e(e, "Error playing video on IntroScreen");
-        }
-    }
-
-    final /* synthetic */ void lambda$startVideo$0$IntroScreenActivity(MediaPlayer player) {
-        if (player != null) {
-            this.mInitSuccessfull = true;
-            player.start();
-            if (this.mSavedPlaybackPosition != 0) {
-                player.seekTo(this.mSavedPlaybackPosition);
-            }
-            player.setOnPreparedListener(null);
         }
     }
 
