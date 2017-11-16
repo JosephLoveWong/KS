@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
-    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_LOGS"/>
 
     <application
         android:name=".BaseApp"
@@ -27,7 +27,7 @@
 
         <!-- 欢迎页面 -->
         <activity
-            android:name=".pages.SplashActivity"
+            android:name=".pages.splash.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppStartTheme">
@@ -40,7 +40,9 @@
         <activity
             android:name=".pages.LauncherActivity"
             android:theme="@style/AppTransparent"/>
-        <activity android:name=".pages.introscreen.IntroScreenActivity"/>
+        <activity
+            android:name=".pages.introscreen.IntroScreenActivity"
+            android:theme="@style/AppTransparent"/>
     </application>
 
 </manifest>

@@ -121,8 +121,8 @@ public class IntroScreenActivity extends BaseActivity {
         metaRetriever.setDataSource(this, this.mBackgroundVideoUri);
         String height = metaRetriever.extractMetadata(19);
         String width = metaRetriever.extractMetadata(18);
-        float videoHeight = FieldHelper.isEmpty(height) ? (float) this.mVideoBackground.getHeight() : Float.parseFloat(height);
-        float videoWidth = FieldHelper.isEmpty(width) ? (float) this.mVideoBackground.getWidth() : Float.parseFloat(width);
+        float videoHeight = FieldHelper.INSTANCE.isEmpty(height) ? (float) this.mVideoBackground.getHeight() : Float.parseFloat(height);
+        float videoWidth = FieldHelper.INSTANCE.isEmpty(width) ? (float) this.mVideoBackground.getWidth() : Float.parseFloat(width);
         float viewWidth = (float) this.mVideoBackground.getWidth();
         float viewHeight = (float) this.mVideoBackground.getHeight();
         float scaleX = 1.0f;

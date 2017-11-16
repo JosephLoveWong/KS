@@ -85,13 +85,13 @@ public final class ViewHelper {
     }
 
     public static void setIfNotEmpty(TextView view, String text) {
-        if (!FieldHelper.isEmpty((CharSequence) text)) {
+        if (!FieldHelper.INSTANCE.isEmpty((CharSequence) text)) {
             view.setText(text);
         }
     }
 
     public static void setTextViewTextOrHide(TextView view, String text) {
-        if (FieldHelper.isEmpty((CharSequence) text)) {
+        if (FieldHelper.INSTANCE.isEmpty((CharSequence) text)) {
             makeGone(view);
             return;
         }

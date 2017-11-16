@@ -17,7 +17,7 @@
 
     <style name="KitchenThemeOverlay">
         <item name="colorPrimary">@color/honey_melon</item>
-        <item name="colorPrimaryDark">@color/primary_material_light_dark</item>
+        <item name="colorPrimaryDark">@color/honey_melon</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -76,7 +76,8 @@
         <item name="android:fontFamily">fonts/BrandonTextMedium.otf</item>
     </style>
 
-    <style name="ButtonStyleBig">
+    <style name="ButtonStyleBig" parent="Widget.AppCompat.Button">
+        <item name="background">@color/honey_melon</item>
         <item name="android:textSize">@dimen/text_size_h2</item>
         <item name="android:textColor">@color/primary_text_default_material_dark</item>
         <item name="android:padding">24dp</item>

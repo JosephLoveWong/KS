@@ -12,6 +12,6 @@ public class Constants {
     }
 
     public interface Splash {
-        long DELAY_TIMER = 1000;
+        long DELAY_TIMER = 3000;
     }
 }

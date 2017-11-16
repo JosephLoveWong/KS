@@ -2,6 +2,8 @@ package com.promiseland.ks.pages.about;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,12 +12,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.promiseland.ks.R;
+import com.promiseland.ks.base.utils.APILevelHelper;
+import com.promiseland.ks.base.utils.ConfigurationUtils;
 import com.promiseland.ks.pages.BaseFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class AboutUsFragment extends BaseFragment {
     public static final String TAG = AboutUsFragment.class.getSimpleName();
+
+    @BindView(R.id.appbar_layout)
+    public AppBarLayout mAppBar;
+
     private int mDebugClickStep = 0;
 //    @Inject
 //    ShareManager mShareManager;
@@ -26,12 +36,19 @@ public class AboutUsFragment extends BaseFragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_about_us, container, false);
+        View view = inflater.inflate(R.layout.fragment_about_us, container, false);
+        ButterKnife.bind(this, view);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        updateLocaleSpecificUi();
     }
 
     public void onResume() {
         super.onResume();
-        updateLocaleSpecificUi();
     }
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -40,7 +57,17 @@ public class AboutUsFragment extends BaseFragment {
     }
 
     protected void updateLocaleSpecificUi() {
-        getActivity().setTitle(R.string.navigation_about_us);
+//        getActivity().setTitle(R.string.navigation_about_us);
+
+        if (APILevelHelper.isAPILevelMinimal(21)) {
+            if(mAppBar.getChildCount() > 0) {
+                int statusBarHeight = ConfigurationUtils.getStatusBarHeight(getContext());
+                View child = mAppBar.getChildAt(0);
+                AppBarLayout.LayoutParams lp = (AppBarLayout.LayoutParams) child.getLayoutParams();
+                lp.height += statusBarHeight;
+            }
+
+        }
     }
 
     @OnClick
