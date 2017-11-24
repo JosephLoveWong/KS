@@ -2,6 +2,8 @@ package com.promiseland.ks.pages;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -88,5 +90,8 @@ public class LauncherActivity extends AppCompatActivity
         searchView.attachNavigationDrawerToMenuButton(mDrawer);
     }
 
-
+    public static void launch(Context activity) {
+        Intent intent = new Intent(activity, LauncherActivity.class);
+        activity.startActivity(intent);
+    }
 }

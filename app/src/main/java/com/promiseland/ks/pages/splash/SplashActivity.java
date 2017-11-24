@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 
-import com.promiseland.ks.BaseApp;
 import com.promiseland.ks.R;
 import com.promiseland.ks.base.Constants;
 import com.promiseland.ks.base.model.ActivityData;
@@ -27,11 +26,7 @@ public class SplashActivity extends AppCompatActivity {
 
         @Override
         public void onFinish() {
-            // TODO
-            Intent intent = new Intent();
-            intent.setClass(BaseApp.getContext(), LauncherActivity.class);
-            startActivity(intent);
-
+            LauncherActivity.launch(SplashActivity.this);
             finish();
         }
     };

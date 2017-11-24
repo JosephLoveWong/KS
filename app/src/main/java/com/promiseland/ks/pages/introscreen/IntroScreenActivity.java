@@ -22,6 +22,7 @@ import com.promiseland.ks.base.utils.APILevelHelper;
 import com.promiseland.ks.base.utils.ConfigurationUtils;
 import com.promiseland.ks.base.utils.FieldHelper;
 import com.promiseland.ks.pages.BaseActivity;
+import com.promiseland.ks.pages.LauncherActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -198,21 +199,20 @@ public class IntroScreenActivity extends BaseActivity {
 //        TrackEvent.event("BUTTON_ONBOARDING_IAMNEW").post();
     }
 
-    @OnClick
+    @OnClick(R.id.btn_been_here)
     public void onBeenHereClick() {
         showFeed();
 //        TrackEvent.event("BUTTON_ONBOARDING_IVEBEENHERE").post();
     }
 
-    @OnClick
+    @OnClick(R.id.btn_skip)
     public void onSkipClick() {
         showFeed();
 //        TrackEvent.event("BUTTON_ONBOARDING_SKIP").post();
     }
 
     private void showFeed() {
-        // TODO 跳转主页
-//        FeedActivity.launch(this);
+        LauncherActivity.launch(this);
         finish();
     }
 
